@@ -21,7 +21,9 @@ export default function AssignmentEditor() {
               <input id="wd-points" value={100} />
             </td>
           </tr>
-          <br />
+          <tr>
+            <td colSpan={2} style={{ height: '10px' }}></td>
+          </tr>
           <tr>
             <td align="right" valign="top">
               <label htmlFor="wd-group">Assignment Group</label>
@@ -33,7 +35,9 @@ export default function AssignmentEditor() {
               </select>
             </td>
           </tr>
-          <br />
+          <tr>
+            <td colSpan={2}>&nbsp;</td>
+          </tr>
           <tr>
             <td align="right" valign="top">
               <label htmlFor="wd-display-grade-as">Display Grade as</label>
@@ -45,7 +49,9 @@ export default function AssignmentEditor() {
               </select>
             </td>
           </tr>
-          <br />
+          <tr>
+            <td colSpan={2}>&nbsp;</td>
+          </tr>
           <tr>
             <td align="right" valign="top">
               <label htmlFor="wd-submission-type">Submission Type</label>
@@ -79,7 +85,9 @@ export default function AssignmentEditor() {
               <label htmlFor="wd-file-upload">File Uploads</label>
             </td>
           </tr>
-          <br />
+          <tr>
+            <td colSpan={2}>&nbsp;</td>
+          </tr>
           <tr>
             <td align="right" valign="top">
               <label htmlFor="wd-assign">Assign</label>
@@ -97,7 +105,9 @@ export default function AssignmentEditor() {
               </select>
             </td>
           </tr>
-          <br />
+          <tr>
+            <td colSpan={2}>&nbsp;</td>
+          </tr>
           <tr>
             <td></td>
             <td align="left">
@@ -135,10 +145,15 @@ export default function AssignmentEditor() {
         </tbody>
       </table>
       <br />
-      <div align="right">
-        <button id="wd-cancel">Cancel</button>
-        <button id="wd-save">Save</button>
-      </div>
+      <table width="100%">
+        <tr>
+          <td></td>
+          <td align="right">
+            <button id="wd-cancel">Cancel</button>
+            <button id="wd-save">Save</button>
+          </td>
+        </tr>
+      </table>
     </div>
   );
 }
