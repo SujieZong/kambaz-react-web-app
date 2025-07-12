@@ -6,6 +6,17 @@ import Lab3 from "./Lab3";
 export default function Labs() {
   return (
     <div id="wd-labs">
+      <div id="wd-lab-header">
+        Sujie Zong
+        <br />
+        5610 Web Programming <br />
+        Summer2 2025 Online <br />
+        <a href="https://github.com/SujieZong/" id="wd-github-page">
+          Github
+        </a>
+        <br />
+        Sujie Zong
+      </div>
       <h1>Labs</h1>
       <TOC />
       <Routes>

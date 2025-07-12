@@ -2,13 +2,7 @@ export default function Lab1() {
     return (
     
         <div id="wd-lab1">
-            <div id = "wd-lab1-header">
-            Sujie Zong<br />
-            5610 Web Programming <br />
-            Summer2 2025 Online <br />
-             <a href="https://github.com/SujieZong/" id="wd-github-page">Github</a>
-
-            </div>
+            
             <h2>Lab 1</h2>
             <h3>HTML Examples</h3>
             <div id="wd-h-tag">
