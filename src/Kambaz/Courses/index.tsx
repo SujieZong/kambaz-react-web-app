@@ -5,6 +5,8 @@ import Home from "./Home";
 import Assignments from "./Assignments";
 import AssignmentEditor from "./Assignments/Editor";
 import { FaAlignJustify } from "react-icons/fa";
+import PeopleTable from "./People/Table";
+import { Container, Row, Col } from "react-bootstrap";
 export default function Courses() {
   return (
     <div id="wd-courses">
@@ -13,21 +15,24 @@ export default function Courses() {
         Course 1234
       </h2>
       <hr />
-      <div className="d-flex">
-        <div className="d-none d-md-block"></div>
+       <Container fluid>
+      <Row>
+        <Col xs={12} md={2} lg={2} className="p-0">
         <CourseNavigation />
-      </div>
-      <div className="flex-fill">
+        </Col>
+        <Col xs={12} md={10} lg={10}>
         <Routes>
           <Route path="/" element={<Navigate to="Home" />} />
           <Route path="Home" element={<Home />} />
           <Route path="Modules" element={<Modules />} />
           <Route path="Assignments" element={<Assignments />} />
           <Route path="Assignments/:aid" element={<AssignmentEditor />} />
-          <Route path="Assignments/:aid" element={<h2>Assignment Editor</h2>} />
-          <Route path="People" element={<h2>People</h2>} />
+          <Route path="People" element={<PeopleTable />} />
+          
         </Routes>
-      </div>
+       </Col>
+      </Row>
+    </Container>
     </div>
   );
 }
