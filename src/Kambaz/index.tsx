@@ -8,7 +8,7 @@ export default function Kambaz() {
   return (
     <div id="wd-kambaz">
       <KambazNavigation />
-      <div className="wd-main-content-offset"> {/* offset for the navigation bar but why there're 2? */}
+      <div className="wd-main-content-offset"> 
         <Routes>
           <Route path="/" element={<Navigate to="Account" />} />
           <Route path="/Account/*" element={<Account />} />

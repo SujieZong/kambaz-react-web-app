@@ -1,17 +1,18 @@
-import AccountNavigation from "../Navigation";
 import { Routes, Route, Navigate } from "react-router";
 import Profile from "./Profile";
 import Signin from "./Signin";
 import Signup from "./Signup";
+import AccountNavigation from "./AccountNavigation";
+
 export default function Account() {
   return (
     <div id="wd-account-screen">
-      <table>
-        <tr>
-          <td valign="top">
-            <AccountNavigation />
-          </td>
-          <td valign="top">
+      <div className="d-flex">
+        <div className="d-none d-md-block">
+          <AccountNavigation />
+        </div>
+        <div className="flex-grow-1">
+          <div className="p-4">
             <h2>Account</h2>
             <Routes>
               <Route
@@ -22,9 +23,9 @@ export default function Account() {
               <Route path="/Profile" element={<Profile />} />
               <Route path="/Signup" element={<Signup />} />
             </Routes>
-          </td>
-        </tr>
-      </table>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

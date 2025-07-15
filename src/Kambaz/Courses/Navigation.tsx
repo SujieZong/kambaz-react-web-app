@@ -1,47 +1,88 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import "./Navigation.css";
+
 export default function CourseNavigation() {
   return (
     <div id="wd-courses-navigation" className="wd list-group fs-5 rounded-0">
-      <Link to="/Kambaz/Courses/1234/Home" id="wd-course-home-link" 
-      className="list-group-item active border border-0">
+      <NavLink
+        to="/Kambaz/Courses/1234/Home"
+        id="wd-course-home-link"
+        className={({ isActive }) =>
+          `list-group-item course-nav-link ${isActive ? "active" : ""}`
+        }
+      >
         Home
-      </Link>
-      
-      <Link to="/Kambaz/Courses/1234/Modules" id="wd-course-modules-link" 
-      className="list-group-item border border-0">
+      </NavLink>
+
+      <NavLink
+        to="/Kambaz/Courses/1234/Modules"
+        id="wd-course-modules-link"
+        className={({ isActive }) =>
+          `list-group-item course-nav-link ${isActive ? "active" : ""}`
+        }
+      >
         Modules
-      </Link>
-     
-      <Link to="/Kambaz/Courses/1234/Piazza" id="wd-course-piazza-link"
-      className="list-group-item border border-0">
+      </NavLink>
+
+      <NavLink
+        to="/Kambaz/Courses/1234/Piazza"
+        id="wd-course-piazza-link"
+        className={({ isActive }) =>
+          `list-group-item course-nav-link ${isActive ? "active" : ""}`
+        }
+      >
         Piazza
-      </Link>
-      
-      <Link to="/Kambaz/Courses/1234/Zoom" id="wd-course-zoom-link"
-      className="list-group-item border border-0">
+      </NavLink>
+
+      <NavLink
+        to="/Kambaz/Courses/1234/Zoom"
+        id="wd-course-zoom-link"
+        className={({ isActive }) =>
+          `list-group-item course-nav-link ${isActive ? "active" : ""}`
+        }
+      >
         Zoom
-      </Link>
-      
-      <Link to="/Kambaz/Courses/1234/Assignments" id="wd-course-quizzes-link"
-      className="list-group-item border border-0">
+      </NavLink>
+
+      <NavLink
+        to="/Kambaz/Courses/1234/Assignments"
+        id="wd-course-assignments-link"
+        className={({ isActive }) =>
+          `list-group-item course-nav-link ${isActive ? "active" : ""}`
+        }
+      >
         Assignments
-      </Link>
-      
-      <Link to="/Kambaz/Courses/1234/Quizzes" id="wd-course-assignments-link"
-      className="list-group-item border border-0">
+      </NavLink>
+
+      <NavLink
+        to="/Kambaz/Courses/1234/Quizzes"
+        id="wd-course-quizzes-link"
+        className={({ isActive }) =>
+          `list-group-item course-nav-link ${isActive ? "active" : ""}`
+        }
+      >
         Quizzes
-      </Link>
-      
-      <Link to="/Kambaz/Courses/1234/Grades" id="wd-course-grades-link"
-      className="list-group-item border border-0">
+      </NavLink>
+
+      <NavLink
+        to="/Kambaz/Courses/1234/Grades"
+        id="wd-course-grades-link"
+        className={({ isActive }) =>
+          `list-group-item course-nav-link ${isActive ? "active" : ""}`
+        }
+      >
         Grades
-      </Link>
-      
-      <Link to="/Kambaz/Courses/1234/People" id="wd-course-people-link"
-      className="list-group-item border border-0">
+      </NavLink>
+
+      <NavLink
+        to="/Kambaz/Courses/1234/People"
+        id="wd-course-people-link"
+        className={({ isActive }) =>
+          `list-group-item course-nav-link ${isActive ? "active" : ""}`
+        }
+      >
         People
-      </Link>
-      
+      </NavLink>
     </div>
   );
 }
