@@ -14,7 +14,7 @@ export default function Labs() {
         <a href="https://github.com/SujieZong/" id="wd-github">
           Github
         </a>
-        <a href="https://github.com/SujieZong/" id="wd-github">
+        <a href="https://github.com/SujieZong/kambaz-react-web-app.git" id="wd-github">
           Github- Kambaz
         </a>
         <br />
