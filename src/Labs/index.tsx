@@ -14,7 +14,7 @@ export default function Labs() {
         <a href="https://github.com/SujieZong/" id="wd-github">
           Github
         </a>
-        <a href="https://github.com/SujieZong/kambaz-react-web-app.git" id="wd-github">
+        <a href="https://github.com/SujieZong/kambaz-react-web-app.git" id="wd-github-kambaz">
           Github- Kambaz
         </a>
         <br />
@@ -27,6 +27,7 @@ export default function Labs() {
         <Route path="Lab1" element={<Lab1 />} />
         <Route path="Lab2/*" element={<Lab2 />} />
         <Route path="Lab3/*" element={<Lab3 />} />
+        
       </Routes>
     </div>
   );
