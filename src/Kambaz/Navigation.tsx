@@ -1,12 +1,18 @@
-import { NavLink } from "react-router-dom";
 import { AiOutlineDashboard } from "react-icons/ai";
-import ListGroup from "react-bootstrap/ListGroup";
 import { IoCalendarOutline } from "react-icons/io5";
 import { LiaBookSolid, LiaCogSolid } from "react-icons/lia";
 import { FaInbox, FaRegCircleUser } from "react-icons/fa6";
-import "./styles.css";
-
+import { Link, useLocation } from "react-router-dom";
+import { ListGroup } from "react-bootstrap";
 export default function KambazNavigation() {
+  const { pathname } = useLocation();
+  const links = [
+    { label: "Dashboard", path: "/Kambaz/Dashboard", icon: AiOutlineDashboard },
+    { label: "Courses", path: "/Kambaz/Dashboard", icon: LiaBookSolid },
+    { label: "Calendar", path: "/Kambaz/Calendar", icon: IoCalendarOutline },
+    { label: "Inbox", path: "/Kambaz/Inbox", icon: FaInbox },
+    { label: "Labs", path: "/Labs", icon: LiaCogSolid },
+  ];
   return (
     <ListGroup
       id="wd-kambaz-navigation"
@@ -16,98 +22,44 @@ export default function KambazNavigation() {
       <ListGroup.Item
         id="wd-neu-link"
         target="_blank"
-        action
         href="https://www.northeastern.edu/"
+        action
         className="bg-black border-0 text-center"
       >
-        <img src="images/NEU.png" width="75px" alt="Northeastern University" />
+        <img src="/images/NEU.png" width="75px" />
       </ListGroup.Item>
-
-      <NavLink to="/Kambaz/Account">
-        {({ isActive }: { isActive: boolean }) => (
-          <ListGroup.Item
-            className={`kambaz-nav-item ${isActive ? "active" : ""}`}
-            as="div"
-          >
-            <FaRegCircleUser
-              className={`kambaz-nav-icon account-icon ${
-                isActive ? "active" : ""
-              }`}
-            />
-            Account
-          </ListGroup.Item>
-        )}
-      </NavLink>
-
-      <NavLink to="/Kambaz/Dashboard">
-        {({ isActive }: { isActive: boolean }) => (
-          <ListGroup.Item
-            className={`kambaz-nav-item ${isActive ? "active" : ""}`}
-            as="div"
-          >
-            <AiOutlineDashboard
-              className={`kambaz-nav-icon ${isActive ? "active" : ""}`}
-            />
-            Dashboard
-          </ListGroup.Item>
-        )}
-      </NavLink>
-
-      <NavLink to="/Kambaz/Courses">
-        {({ isActive }: { isActive: boolean }) => (
-          <ListGroup.Item
-            className={`kambaz-nav-item ${isActive ? "active" : ""}`}
-            as="div"
-          >
-            <LiaBookSolid
-              className={`kambaz-nav-icon ${isActive ? "active" : ""}`}
-            />
-            Courses
-          </ListGroup.Item>
-        )}
-      </NavLink>
-
-      <NavLink to="/Kambaz/Calendar">
-        {({ isActive }: { isActive: boolean }) => (
-          <ListGroup.Item
-            className={`kambaz-nav-item ${isActive ? "active" : ""}`}
-            as="div"
-          >
-            <IoCalendarOutline
-              className={`kambaz-nav-icon ${isActive ? "active" : ""}`}
-            />
-            Calendar
-          </ListGroup.Item>
-        )}
-      </NavLink>
-
-      <NavLink to="/Kambaz/Inbox">
-        {({ isActive }: { isActive: boolean }) => (
-          <ListGroup.Item
-            className={`kambaz-nav-item ${isActive ? "active" : ""}`}
-            as="div"
-          >
-            <FaInbox
-              className={`kambaz-nav-icon ${isActive ? "active" : ""}`}
-            />
-            <br /> Inbox
-          </ListGroup.Item>
-        )}
-      </NavLink>
-
-      <NavLink to="/Labs" id="wd-labs-link">
-        {({ isActive }: { isActive: boolean }) => (
-          <ListGroup.Item
-            className={`kambaz-nav-item ${isActive ? "active" : ""}`}
-            as="div"
-          >
-            <LiaCogSolid
-              className={`kambaz-nav-icon ${isActive ? "active" : ""}`}
-            />
-            <br /> Labs
-          </ListGroup.Item>
-        )}
-      </NavLink>
+      <ListGroup.Item
+        as={Link}
+        to="/Kambaz/Account"
+        className={`text-center border-0 ${
+          pathname.includes("Account")
+            ? "bg-white text-danger"
+            : "bg-black text-white"
+        }`}
+      >
+        
+        <FaRegCircleUser
+          className={`fs-1 ${
+            pathname.includes("Account") ? "text-danger" : "text-white"
+          }`}
+        />
+        <br /> Account
+      </ListGroup.Item>
+      {links.map((link) => (
+        <ListGroup.Item
+          key={link.path}
+          as={Link}
+          to={link.path}
+          className={`bg-black text-center border-0 ${
+            pathname.includes(link.label)
+              ? "bg-white text-danger"
+              : "bg-black text-white"
+          }`}
+        >
+          
+          {link.icon({ className: "fs-1 text-danger" })} <br /> {link.label}
+        </ListGroup.Item>
+      ))}
     </ListGroup>
   );
 }

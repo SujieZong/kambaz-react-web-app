@@ -39,39 +39,26 @@ body * {
   text-decoration: none !important;
 }
 
-/* Kambaz Navigation Styles, using copilot to compile into styles.css*/
-.kambaz-nav-item {
-  text-align: center;
-  border: 0;
-  text-decoration: none !important;
-  background-color: black !important; /* bg-black */
-  color: white !important; /* text-white */
+/* Course Navigation Styles */
+.course-nav-link {
+  color: #dc3545;
+  text-decoration: none;
 }
 
-.kambaz-nav-item.active {
-  background-color: white !important; /* bg-white */
-  text-decoration: none !important;
-  color: #dc3545 !important; /* text-danger - no keyword equivalent */
+.course-nav-link:hover {
+  color: #dc3545;
+  text-decoration: underline;
 }
 
-.kambaz-nav-icon {
-  font-size: 3rem; /* fs-1 equivalent */
-
-  color: #dc3545 !important; /* text-danger - no keyword equivalent */
+.course-nav-link.active {
+  color: black;
+  border-left: 3px solid black;
 }
 
-.kambaz-nav-icon.account-icon {
-  color: white !important; /* white for account icon when not active */
-}
 
-.kambaz-nav-icon.active {
-  color: #dc3545 !important; /* text-danger - no keyword equivalent */
-}
-
-/* Remove blue underlines from NavLink components */
 #wd-kambaz-navigation a {
   text-decoration: none !important;
-  color: inherit !important;
+
 }
 
 #wd-kambaz-navigation a:hover,
@@ -79,5 +66,21 @@ body * {
 #wd-kambaz-navigation a:visited,
 #wd-kambaz-navigation a:active {
   text-decoration: none !important;
-  color: inherit !important;
+
+}
+
+/* Remove borders from account navigation */
+#wd-account-navigation .list-group-item {
+  border-top: none !important;
+  border-right: none !important;
+  border-bottom: none !important;
+
+  border-left: none
+}
+.course-nav-link{
+  border-top: none !important;
+  border-right: none !important;
+  border-bottom: none !important;
+
+  border-left: none
 }
