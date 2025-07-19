@@ -1,10 +1,64 @@
-import { Button, Form } from "react-bootstrap";
+import {Form } from "react-bootstrap";
+import { Link, useParams } from "react-router-dom";
+import * as db from "../../Database";
+
 export default function AssignmentEditor() {
+    const { cid,aid } = useParams();
+    const assignment = db.assignments.find((assignment: any) => assignment._id === aid);
+    
+  if (!assignment){
+    return(
+      <div id="wd-assignments-editor">
+        <h3>Assignment not found</h3>
+        <Link to={`/Kambaz/Courses/${cid}/Assignments`} className="btn btn-secondary">
+          Back to Assignments
+        </Link>
+      </div>  
+    );
+  }
+
+  // copilot add this function to format date strings for input fields
+const formatDateForInput = (dateString: string) => {
+  if (!dateString) return "";
+  
+  try {
+    // Handle formats like "Jul 1 at 12:00 am" or "May 13 at 11:59 pm"
+    const dateRegex = /^(\w{3})\s+(\d{1,2})\s+at/;
+    const match = dateString.match(dateRegex);
+    
+    if (match) {
+      const monthMap: { [key: string]: string } = {
+        'Jan': '01', 'Feb': '02', 'Mar': '03', 'Apr': '04',
+        'May': '05', 'Jun': '06', 'Jul': '07', 'Aug': '08',
+        'Sep': '09', 'Oct': '10', 'Nov': '11', 'Dec': '12'
+      };
+      
+      const month = monthMap[match[1]];
+      const day = match[2].padStart(2, '0');
+      const year = '2024'; // Assuming current year
+      
+      return `${year}-${month}-${day}`;
+    }
+    
+    // Fallback: try to parse as regular date
+    const date = new Date(dateString);
+    if (!isNaN(date.getTime())) {
+      return date.toISOString().split('T')[0];
+    }
+    
+    // Default fallback
+    return "2024-05-16";
+    
+  } catch (error) {
+    return "2024-05-16";
+  }
+};
+
   return (
     <div id="wd-assignments-editor">
       <Form.Group className="mb-3">
         <Form.Label htmlFor="wd-name">Assignment Name</Form.Label>
-        <Form.Control id="wd-name" value="A1 - ENV + HTML" />
+        <Form.Control id="wd-name" value={assignment.title}/>
       </Form.Group>
 
       <Form.Group className="mb-3">
@@ -13,7 +67,7 @@ export default function AssignmentEditor() {
           as="textarea"
           id="wd-description"
           rows={5}
-          value="The assignment is available online. Submit a link to the landing page of your Web application running on Netlify."
+          value={assignment.description||"The assignment is available online. Submit a link to the landing page of your Web application running on Netlify."}
         />
       </Form.Group>
 
@@ -22,7 +76,7 @@ export default function AssignmentEditor() {
           <Form.Label htmlFor="wd-points">Points</Form.Label>
         </div>
         <div className="col-md-9">
-          <Form.Control id="wd-points" value={100} />
+          <Form.Control id="wd-points" value={assignment.points} />
         </div>
       </div>
 
@@ -119,7 +173,7 @@ export default function AssignmentEditor() {
 
             <Form.Group className="mb-3">
               <Form.Label htmlFor="wd-due-date"><strong>Due</strong></Form.Label>
-              <Form.Control type="date" id="wd-due-date" value="2024-05-13" />
+              <Form.Control type="date" id="wd-due-date" value={formatDateForInput(assignment.dueDate)} />
             </Form.Group>
 
             <div className="row">
@@ -131,7 +185,7 @@ export default function AssignmentEditor() {
                   <Form.Control
                     type="date"
                     id="wd-available-from"
-                    value="2024-05-06"
+                    value={formatDateForInput(assignment.availableFrom)}
                   />
                 </Form.Group>
               </div>
@@ -141,7 +195,7 @@ export default function AssignmentEditor() {
                   <Form.Control
                     type="date"
                     id="wd-available-until"
-                    value="2024-05-20"
+                    value={formatDateForInput(assignment.availableUntil)}
                   />
                 </Form.Group>
               </div>
@@ -151,12 +205,12 @@ export default function AssignmentEditor() {
       </div>
         <hr className="my-4" />
       <div className="d-flex justify-content-end gap-2">
-        <Button variant="secondary" size="lg" id="wd-cancel">
+        <Link to={`/Kambaz/Courses/${cid}/Assignments`} className="btn btn-secondary btn-lg" id="wd-cancel">
           Cancel
-        </Button>
-        <Button variant="danger" size="lg" id="wd-save">
+        </Link>
+        <Link to={`/Kambaz/Courses/${cid}/Assignments`} className="btn btn-danger btn-lg" id="wd-save">
           Save
-        </Button>
+        </Link>
       </div>
     </div>
   );

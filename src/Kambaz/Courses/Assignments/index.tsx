@@ -11,7 +11,9 @@ import * as db from "../../Database";
 
 export default function Assignments() {
   const { cid } = useParams();
-  const assignments = db.assignments.filter((assignment: any) => assignment.course === cid);
+  const assignments = db.assignments.filter(
+    (assignment: any) => assignment.course === cid
+  );
   return (
     <div id="wd-assignments">
       <div className="d-flex justify-content-between align-items-center mb-4 flex-grow-1 me-3">
@@ -74,38 +76,38 @@ export default function Assignments() {
 
           <ListGroup className="wd-assignment-items rounded-0">
             {assignments.map((assignment: any) => (
-            <ListGroup.Item
-              key={assignment._id}
-              className="wd-assignment p-3 ps-1 d-flex align-items-start
+              <ListGroup.Item
+                key={assignment._id}
+                className="wd-assignment p-3 ps-1 d-flex align-items-start
              border-0 border-start border-success border-4"
-            >
-              <BsGripVertical className="me-3 text-muted mt-1" />
-              <MdEditDocument className="me-3 text-success fs-4 mt-1" />
+              >
+                <BsGripVertical className="me-3 text-muted mt-1" />
+                <MdEditDocument className="me-3 text-success fs-4 mt-1" />
 
-              <div className="flex-grow-1 small">
-                <div className="fw-bold mb-1">
-                  
-                  <a
-                    href={`#/Kambaz/Courses/${cid}/Assignments/${assignment._id}`}
-                    className="wd-assignment-link text-decoration-none text-dark"
-                  >
-                    {assignment.title}
-                  </a>
-                </div>
-                <div className="text-muted">
-                  <span className="text-danger">Multiple Modules</span> |
-                  <AssignmentControlButtons />
-                  <span className="fw-bold"> Not available until</span>{assignment.availableFrom}|
-                </div>
+                <div className="flex-grow-1 small">
+                  <div className="fw-bold mb-1">
+                    <a
+                      href={`#/Kambaz/Courses/${cid}/Assignments/${assignment._id}`}
+                      className="wd-assignment-link text-decoration-none text-dark"
+                    >
+                      {assignment.title}
+                    </a>
+                  </div>
+                  <div className="text-muted">
+                    <span className="text-danger">Multiple Modules</span> |
+                    <AssignmentControlButtons />
+                    <span className="fw-bold"> Not available until </span>
+                    {assignment.availableFrom}|
+                  </div>
 
-                <div className="text-muted">
-                  <span className="fw-bold">Due</span> {assignment.dueDate} | {assignment.points}
-                  pts
+                  <div className="text-muted">
+                    <span className="fw-bold">Due</span> {assignment.dueDate} |{" "}
+                    {assignment.points}
+                    pts
+                  </div>
                 </div>
-              </div>
-            </ListGroup.Item>
-
-           ))}
+              </ListGroup.Item>
+            ))}
           </ListGroup>
         </ListGroup.Item>
       </ListGroup>
