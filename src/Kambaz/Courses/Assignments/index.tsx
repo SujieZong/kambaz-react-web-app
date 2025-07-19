@@ -6,8 +6,12 @@ import { ListGroup } from "react-bootstrap";
 import { MdEditDocument } from "react-icons/md";
 import AssignmentControlButtons from "./AssignmentControlBottons";
 import { FaPlus } from "react-icons/fa";
+import { useParams } from "react-router-dom";
+import * as db from "../../Database";
 
 export default function Assignments() {
+  const { cid } = useParams();
+  const assignments = db.assignments.filter((assignment: any) => assignment.course === cid);
   return (
     <div id="wd-assignments">
       <div className="d-flex justify-content-between align-items-center mb-4 flex-grow-1 me-3">
@@ -69,7 +73,9 @@ export default function Assignments() {
           </div>
 
           <ListGroup className="wd-assignment-items rounded-0">
+            {assignments.map((assignment: any) => (
             <ListGroup.Item
+              key={assignment._id}
               className="wd-assignment p-3 ps-1 d-flex align-items-start
              border-0 border-start border-success border-4"
             >
@@ -78,87 +84,28 @@ export default function Assignments() {
 
               <div className="flex-grow-1 small">
                 <div className="fw-bold mb-1">
-                  {" "}
+                  
                   <a
-                    href="#/Kambaz/Courses/1234/Assignments/123"
+                    href={`#/Kambaz/Courses/${cid}/Assignments/${assignment._id}`}
                     className="wd-assignment-link text-decoration-none text-dark"
                   >
-                    A1{" "}
+                    {assignment.title}
                   </a>
                 </div>
                 <div className="text-muted">
                   <span className="text-danger">Multiple Modules</span> |
                   <AssignmentControlButtons />
-                  <span className="fw-bold"> Not available until</span> May 6 at
-                  12:00 am |
+                  <span className="fw-bold"> Not available until</span>{assignment.availableFrom}|
                 </div>
 
                 <div className="text-muted">
-                  <span className="fw-bold">Due</span> May 13 at 11:59 pm | 100
+                  <span className="fw-bold">Due</span> {assignment.dueDate} | {assignment.points}
                   pts
                 </div>
               </div>
             </ListGroup.Item>
 
-            <ListGroup.Item
-              className="wd-assignment p-3 ps-1 d-flex align-items-start
-                                        border-0 border-start border-success border-4 "
-            >
-              <BsGripVertical className="me-3 text-muted mt-1" />
-              <MdEditDocument className="me-3 text-success fs-4 mt-1" />
-
-              <div className="flex-grow-1 small">
-                <div className="fw-bold mb-1">
-                  {" "}
-                  <a
-                    href="#/Kambaz/Courses/1234/Assignments/123"
-                    className="wd-assignment-link text-decoration-none text-dark"
-                  >
-                    A2{" "}
-                  </a>
-                </div>
-                <div className="text-muted">
-                  <span className="text-danger">Multiple Modules</span> |
-                  <AssignmentControlButtons />
-                  <span className="fw-bold"> Not available until</span> May 13
-                  at 12:00 am |
-                </div>
-                <div className="text-muted">
-                  <span className="fw-bold">Due</span> May 20 at 11:59 pm | 100
-                  pts
-                </div>
-              </div>
-            </ListGroup.Item>
-
-            <ListGroup.Item
-              className="wd-assignment p-3 ps-1 d-flex align-items-start
-                                        border-0 border-start border-success border-4"
-            >
-              <BsGripVertical className="me-3 text-muted mt-1" />
-              <MdEditDocument className="me-3 text-success fs-4 mt-1" />
-
-              <div className="flex-grow-1 small">
-                <div className="fw-bold mb-1">
-                  {" "}
-                  <a
-                    href="#/Kambaz/Courses/1234/Assignments/123"
-                    className="wd-assignment-link text-decoration-none text-dark"
-                  >
-                    A3{" "}
-                  </a>
-                </div>
-                <div className="text-muted">
-                  <span className="text-danger">Multiple Modules</span> |
-                  <AssignmentControlButtons />
-                  <span className="fw-bold"> Not available until</span> May 20
-                  at 12:00 am |
-                </div>
-                <div className="text-muted">
-                  <span className="fw-bold">Due</span> May 27 at 11:59 pm | 100
-                  pts
-                </div>
-              </div>
-            </ListGroup.Item>
+           ))}
           </ListGroup>
         </ListGroup.Item>
       </ListGroup>

@@ -1,11 +1,74 @@
 [
-  { "_id": "A101", "title": "Propulsion Assignment", "course": "RS101" },
-  { "_id": "A102", "title": "Combustion Analysis", "course": "RS101" },
-  { "_id": "A103", "title": "Nozzle Design Project", "course": "RS101" },
-  { "_id": "A201", "title": "Aerodynamics Quiz", "course": "RS102" },
-  { "_id": "A202", "title": "Flow Analysis", "course": "RS102" },
-  { "_id": "A203", "title": "Heating Analysis", "course": "RS102" },
-  { "_id": "A301", "title": "Structural Design Task", "course": "RS103" },
-  { "_id": "A302", "title": "Orbital Calculations", "course": "RS103" },
-  { "_id": "A303", "title": "Systems Engineering Exam", "course": "RS103" }
+  { 
+    "_id": "A101", 
+    "title": "Propulsion Assignment", 
+    "course": "RS101",
+    "dueDate": "May 13 at 11:59 pm",
+    "availableFrom": "May 6 at 12:00 am",
+    "points": 100
+  },
+  { 
+    "_id": "A102", 
+    "title": "Combustion Analysis", 
+    "course": "RS101",
+    "dueDate": "May 20 at 11:59 pm",
+    "availableFrom": "May 13 at 12:00 am",
+    "points": 150
+  },
+  { 
+    "_id": "A103", 
+    "title": "Nozzle Design Project", 
+    "course": "RS101",
+    "dueDate": "May 27 at 11:59 pm",
+    "availableFrom": "May 20 at 12:00 am",
+    "points": 200
+  },
+  { 
+    "_id": "A201", 
+    "title": "Aerodynamics Quiz", 
+    "course": "RS102",
+    "dueDate": "Jun 3 at 11:59 pm",
+    "availableFrom": "May 27 at 12:00 am",
+    "points": 75
+  },
+  { 
+    "_id": "A202", 
+    "title": "Flow Analysis", 
+    "course": "RS102",
+    "dueDate": "Jun 10 at 11:59 pm",
+    "availableFrom": "Jun 3 at 12:00 am",
+    "points": 120
+  },
+  { 
+    "_id": "A203", 
+    "title": "Heating Analysis", 
+    "course": "RS102",
+    "dueDate": "Jun 17 at 11:59 pm",
+    "availableFrom": "Jun 10 at 12:00 am",
+    "points": 180
+  },
+  { 
+    "_id": "A301", 
+    "title": "Structural Design Task", 
+    "course": "RS103",
+    "dueDate": "Jun 24 at 11:59 pm",
+    "availableFrom": "Jun 17 at 12:00 am",
+    "points": 250
+  },
+  { 
+    "_id": "A302", 
+    "title": "Orbital Calculations", 
+    "course": "RS103",
+    "dueDate": "Jul 1 at 11:59 pm",
+    "availableFrom": "Jun 24 at 12:00 am",
+    "points": 90
+  },
+  { 
+    "_id": "A303", 
+    "title": "Systems Engineering Exam", 
+    "course": "RS103",
+    "dueDate": "Jul 8 at 11:59 pm",
+    "availableFrom": "Jul 1 at 12:00 am",
+    "points": 300
+  }
 ]
