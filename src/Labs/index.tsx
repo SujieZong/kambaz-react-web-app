@@ -4,8 +4,11 @@ import TOC from "./TOC";
 import Lab2 from "./Lab2";
 import Lab3 from "./Lab3";
 import Lab4 from "./Lab4";
+import store from "./store";
+import { Provider } from "react-redux";
 export default function Labs() {
   return (
+    <Provider store={store}>
     <div id="wd-labs">
       <div id="wd-lab-header">
         Sujie Zong
@@ -15,11 +18,13 @@ export default function Labs() {
         <a href="https://github.com/SujieZong/" id="wd-github">
           Github
         </a>
-        <a href="https://github.com/SujieZong/kambaz-react-web-app.git" id="wd-github-kambaz">
+        <a
+          href="https://github.com/SujieZong/kambaz-react-web-app.git"
+          id="wd-github-kambaz"
+        >
           Github- Kambaz
         </a>
         <br />
-        
       </div>
       <h1>Labs</h1>
       <TOC />
@@ -29,9 +34,8 @@ export default function Labs() {
         <Route path="Lab2/*" element={<Lab2 />} />
         <Route path="Lab3/*" element={<Lab3 />} />
         <Route path="Lab4/*" element={<Lab4 />} />
-
-        
       </Routes>
     </div>
+    </Provider>
   );
 }

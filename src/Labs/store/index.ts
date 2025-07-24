@@ -1,4 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
-import helloReducer from "../Lab4/ReduxExamples/HelloRedux/helloReducer.ts";
-const store = configureStore({ reducer: { helloReducer } });
+import helloReducer from "../Lab4/ReduxExamples/HelloRedux/helloReducer";
+import counterReducer from "../Lab4/ReduxExamples/CounterRedux/counterReducer";
+import addReducer from "../Lab4/ReduxExamples/AddRedux/addReducer";
+const store = configureStore({ reducer: { helloReducer, counterReducer, addReducer } });
 export default store;

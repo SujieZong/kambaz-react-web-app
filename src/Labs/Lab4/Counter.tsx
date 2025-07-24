@@ -7,6 +7,7 @@ const [count, setCount] = useState(7);
       
       <h2>Counter: {count}</h2>
       <button
+        className="btn btn-success"
         onClick={() => {
           setCount(count + 1);
         }}
@@ -14,7 +15,9 @@ const [count, setCount] = useState(7);
       >
         Up
       </button>
+      {" "}
       <button
+      className="btn btn-danger"
         onClick={() => {
           setCount(count - 1)
         }}
